@@ -3,10 +3,9 @@
 	"module": "server.js",
 	"scripts": {
 		"start": "node src/server.js",
-		"dev": "npm run copy-env && npm run migrate up && cross-env NODE_ENV=development nodemon --watch src --ext js --exec \"bun run src/server.js\"",
-		"prod": "npm run migrate up && cross-env NODE_ENV=production bun run src/server.js",
-		"copy-env": "bun -e \"const fs = require('fs'); fs.copyFileSync('.env.example', '.env');\" || cp .env.example .env",
-		"migrate": "node-pg-migrate"
+		"dev": "npm run copy-env && cross-env NODE_ENV=development nodemon --watch src --ext js --exec \"bun run src/server.js\"",
+		"prod": "cross-env NODE_ENV=production bun run src/server.js",
+		"copy-env": "bun -e \"const fs = require('fs'); fs.copyFileSync('.env.example', '.env');\" || cp .env.example .env"
 	},
 	"devDependencies": {
 		"@types/bun": "latest",
