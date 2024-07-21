@@ -1,10 +1,10 @@
-import Hapi from "@hapi/hapi";
-import dotenv from "dotenv";
-import notes from "./api/notes";
-import NotesService from "./services/inMemory/NotesService";
-import NotesValidator from "./validator/notes";
-import RequestService from "./services/RequestService";
-import ClientError from "./exceptions/ClientError";
+const Hapi = require("@hapi/hapi");
+const dotenv = require("dotenv");
+const notes = require("./api/notes");
+const NotesService = require("./services/inMemory/NotesService");
+const NotesValidator = require("./validator/notes");
+const RequestService = require("./services/RequestService");
+const ClientError = require("./exceptions/ClientError");
 
 dotenv.config();
 
