@@ -39,9 +39,7 @@ class RequestService {
 		}
 
 		const response = request.response;
-		const statusCode = response.isBoom
-			? response.output.statusCode
-			: response.statusCode;
+		const statusCode = response.isBoom ? response.output.statusCode : response.statusCode;
 
 		console.log(
 			`[ NodeJS - Hapi ] Code: ${statusCode} | Time: ${responseTime

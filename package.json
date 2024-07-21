@@ -1,26 +1,30 @@
 {
-  "name": "notes-app-back-end",
-  "module": "server.js",
-  "scripts": {
-    "start": "node src/server.js",
-    "start:dev": "npm run copy-env && cross-env NODE_ENV=development nodemon --watch src --ext js --exec \"bun run src/server.js\"",
-    "start:prod": "cross-env NODE_ENV=production bun run src/server.js",
-    "copy-env": "bun -e \"const fs = require('fs'); fs.copyFileSync('.env.example', '.env');\" || cp .env.example .env"
-  },
-  "devDependencies": {
-    "@types/bun": "latest",
-    "eslint": "^9.6.0",
-    "nodemon": "^3.1.4",
-    "prettier": "^3.3.2"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
-  },
-  "dependencies": {
-    "@hapi/hapi": "^21.3.10",
-    "bun": "^1.1.18",
-    "cross-env": "^7.0.3",
-    "dotenv": "^16.4.5",
-    "nanoid": "^3.3.4"
-  }
+	"name": "notes-app-back-end",
+	"module": "server.js",
+	"scripts": {
+		"start": "node src/server.js",
+		"dev": "npm run copy-env && npm run migrate up && cross-env NODE_ENV=development nodemon --watch src --ext js --exec \"bun run src/server.js\"",
+		"prod": "npm run migrate up && cross-env NODE_ENV=production bun run src/server.js",
+		"copy-env": "bun -e \"const fs = require('fs'); fs.copyFileSync('.env.example', '.env');\" || cp .env.example .env",
+		"migrate": "node-pg-migrate"
+	},
+	"devDependencies": {
+		"@types/bun": "latest",
+		"eslint": "^9.7.0",
+		"nodemon": "^3.1.4",
+		"prettier": "^3.3.2"
+	},
+	"peerDependencies": {
+		"typescript": "^5.0.0"
+	},
+	"dependencies": {
+		"@hapi/hapi": "^21.3.10",
+		"bun": "^1.1.18",
+		"cross-env": "^7.0.3",
+		"dotenv": "^16.4.5",
+		"joi": "^17.13.3",
+		"nanoid": "^3.3.4",
+		"node-pg-migrate": "^7.5.2",
+		"pg": "^8.12.0"
+	}
 }
