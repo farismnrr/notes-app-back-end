@@ -174,8 +174,3 @@ dist
 
 # Finder (MacOS) folder config
 .DS_Store
-
-# Database
-migrations/
-src/services/postgres/
-src/services/postgres/NotesService.js
