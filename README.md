@@ -1,15 +1,14 @@
 # notes-app-back-end
 
-To install dependencies:
+---
 
+## How to Run Program
+1. Check `.env.example` for required environment variables.
+2. Run on Development
 ```bash
-bun install
+npm run build:local
 ```
-
-To run:
-
+3. Run on Production (Linux Server Only)
 ```bash
-bun run server.js
+npm run build:server
 ```
-
-This project was created using `bun init` in bun v1.1.8. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
