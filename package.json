@@ -1,9 +1,10 @@
 {
 	"name": "notes-app-back-end",
 	"module": "server.js",
+	"type": "commonjs",
 	"scripts": {
 		"build:local": "npm install && bun run copy-env && bun run migrate up && bun run start:dev",
-		"build:server": "npm install && bun run copy-env && echo HOST=0.0.0.0 > .env.production && bun run migrate up && sudo bun i -g pm2 && pm2 start bun --name \"notes-app-back-end\" -- run start:prod",
+		"build:server": "npm install && bun run copy-env && echo HOST=0.0.0.0 > .env.production && bun run migrate up && sudo npm i -g pm2 && pm2 start bun --name \"notes-app-back-end\" -- run start:prod",
 		"start": "node src/server.js",
 		"start:dev": "cross-env NODE_ENV=development nodemon --watch src --ext js --exec \"bun run src/server.js\"",
 		"start:prod": "cross-env NODE_ENV=production bun run src/server.js",

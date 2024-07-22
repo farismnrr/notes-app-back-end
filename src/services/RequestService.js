@@ -42,16 +42,10 @@ class RequestService {
 		const statusCode = response.isBoom ? response.output.statusCode : response.statusCode;
 
 		console.log(
-			`[ NodeJS - Hapi ] Code: ${statusCode} | Time: ${responseTime
+			`[ Bun - Hapi ] Code: ${statusCode} | Time: ${responseTime
 				.toFixed()
 				.padStart(3, " ")}${unit} | ${paddedMethod}\t${request.path}`
 		);
-
-		if (response.isBoom && response.output.statusCode === 404) {
-			return h.redirect(
-				"https://storage.googleapis.com/farismnrr-gclouds.appspot.com/not-found/notFound.html"
-			);
-		}
 
 		return h.continue;
 	}
