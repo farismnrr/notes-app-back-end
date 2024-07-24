@@ -16,3 +16,15 @@ npm run build:local
 ```bash
 npm run build:server
 ```
+
+4. Run on Docker
+
+- Build Docker Image
+```bash
+npm run build:docker
+```
+
+- Run Docker Container
+```bash
+npm run start:docker
+```
