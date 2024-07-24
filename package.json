@@ -1,0 +1,48 @@
+{
+	"name": "notes-app-back-end",
+	"version": "1.0.0",
+	"description": "A RESTful API back-end application built with Node.js, Hapi, and Bun, providing a simple note-taking service.",
+	"main": "index.js",
+	"scripts": {
+		"build:local": "npm install && bun run copy-env && bun run start:dev",
+		"build:server": "npm install && bun run copy-env && echo HOST=0.0.0.0 > .env.production && sudo npm i -g pm2 && pm2 start bun --name \"notes-app-back-end\" -- run start:prod",
+		"build:docker": "docker build -t notes-app . && docker run -p 5000:5000 notes-app",
+		"start": "node src/server.js",
+		"start:dev": "cross-env NODE_ENV=development nodemon --watch src --ext js --exec \"bun run src/server.js\"",
+		"start:prod": "cross-env NODE_ENV=production bun run src/server.js",
+		"start:docker": "docker run -d -p 5000:5000 --name notes-app farismnrr/notes-app:1.0",
+		"copy-env": "bun -e \"const fs = require('fs'); fs.copyFileSync('.env.example', '.env');\" || cp .env.example .env"
+	},
+	"keywords": [
+		"notes",
+		"app",
+		"back-end",
+		"nodejs",
+		"hapi",
+		"bun",
+		"javascript",
+		"typescript",
+		"api",
+		"restful",
+		"server"
+	],
+	"author": "farismnrr",
+	"license": "ISC",
+	"devDependencies": {
+		"@types/bun": "latest",
+		"eslint": "^9.7.0",
+		"nodemon": "^3.1.4",
+		"prettier": "^3.3.2"
+	},
+	"peerDependencies": {
+		"typescript": "^5.0.0"
+	},
+	"dependencies": {
+		"@hapi/hapi": "^21.3.10",
+		"bun": "^1.1.18",
+		"cross-env": "^7.0.3",
+		"dotenv": "^16.4.5",
+		"joi": "^17.13.3",
+		"nanoid": "^3.3.4"
+	}
+}
