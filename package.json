@@ -1,6 +1,6 @@
 {
 	"name": "notes-app-back-end",
-	"version": "1.1-postgres",
+	"version": "2.0-postgres",
 	"description": "A RESTful API back-end application built with Node.js, Hapi, Bun, and PostgreSQL, providing a simple note-taking service.",
 	"main": "server.js",
 	"type": "commonjs",
