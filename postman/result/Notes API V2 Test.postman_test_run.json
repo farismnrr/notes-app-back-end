@@ -1,385 +1,22 @@
 {
-	"id": "791bb778-a283-4adc-8783-ac66020e1de3",
+	"id": "0e665ebc-87b8-4fbc-9cb3-3113fde7c739",
 	"name": "Notes API V2 Test",
-	"timestamp": "2024-07-25T10:48:29.622Z",
+	"timestamp": "2024-07-25T23:33:55.973Z",
 	"collection_id": "30262904-4331b0bb-e3ea-472e-820f-3fbba845c59c",
 	"folder_id": 0,
 	"environment_id": "30262904-77bf987a-00ba-4c0f-9b26-5a2dd4dbebca",
-	"totalPass": 59,
+	"totalPass": 120,
 	"delay": 0,
 	"persist": true,
 	"status": "finished",
-	"startedAt": "2024-07-25T10:48:28.018Z",
+	"startedAt": "2024-07-25T23:33:50.071Z",
 	"totalFail": 0,
 	"results": [
 		{
-			"id": "95381b0f-0d08-4bd2-9fda-9326813c8494",
-			"name": "Adding Notes",
-			"url": "localhost:3000/notes",
-			"time": 19,
-			"responseCode": {
-				"code": 201,
-				"name": "Created"
-			},
-			"tests": {
-				"response status code should have 201 value": true,
-				"response Content-Type header should have application/json value": true,
-				"response body should an object": true,
-				"response body should have correct property and value": true,
-				"response body data should have noteId property and not equal to empty": true
-			},
-			"testPassFailCounts": {
-				"response status code should have 201 value": {
-					"pass": 1,
-					"fail": 0
-				},
-				"response Content-Type header should have application/json value": {
-					"pass": 1,
-					"fail": 0
-				},
-				"response body should an object": {
-					"pass": 1,
-					"fail": 0
-				},
-				"response body should have correct property and value": {
-					"pass": 1,
-					"fail": 0
-				},
-				"response body data should have noteId property and not equal to empty": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				19
-			],
-			"allTests": [
-				{
-					"response status code should have 201 value": true,
-					"response Content-Type header should have application/json value": true,
-					"response body should an object": true,
-					"response body should have correct property and value": true,
-					"response body data should have noteId property and not equal to empty": true
-				}
-			]
-		},
-		{
-			"id": "3c1de640-0c2a-42d7-adff-865fcbae35af",
-			"name": "Adding Notes with Bad Payload",
-			"url": "localhost:5000/notes",
-			"time": 10,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response status code should have 400 value": true,
-				"response Content-Type header should have application/json; charset=utf-8 value": true,
-				"response body should be an object": true,
-				"response body object should have correct property and value": true
-			},
-			"testPassFailCounts": {
-				"response status code should have 400 value": {
-					"pass": 1,
-					"fail": 0
-				},
-				"response Content-Type header should have application/json; charset=utf-8 value": {
-					"pass": 1,
-					"fail": 0
-				},
-				"response body should be an object": {
-					"pass": 1,
-					"fail": 0
-				},
-				"response body object should have correct property and value": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				10
-			],
-			"allTests": [
-				{
-					"response status code should have 400 value": true,
-					"response Content-Type header should have application/json; charset=utf-8 value": true,
-					"response body should be an object": true,
-					"response body object should have correct property and value": true
-				}
-			]
-		},
-		{
-			"id": "30b569da-4392-4727-8af4-4905d94a1ab6",
-			"name": "Getting All Notes",
-			"url": "localhost:5000/notes",
-			"time": 13,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response status code should have 200 value": true,
-				"response Content-Type header should have application/json value": true,
-				"response body should an object": true,
-				"response body should have the correct property and value": true,
-				"response body data should have a notes array and contain at least 1 item": true
-			},
-			"testPassFailCounts": {
-				"response status code should have 200 value": {
-					"pass": 1,
-					"fail": 0
-				},
-				"response Content-Type header should have application/json value": {
-					"pass": 1,
-					"fail": 0
-				},
-				"response body should an object": {
-					"pass": 1,
-					"fail": 0
-				},
-				"response body should have the correct property and value": {
-					"pass": 1,
-					"fail": 0
-				},
-				"response body data should have a notes array and contain at least 1 item": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				13
-			],
-			"allTests": [
-				{
-					"response status code should have 200 value": true,
-					"response Content-Type header should have application/json value": true,
-					"response body should an object": true,
-					"response body should have the correct property and value": true,
-					"response body data should have a notes array and contain at least 1 item": true
-				}
-			]
-		},
-		{
-			"id": "77e0b730-9f27-46c6-b266-d274ca9cc6d8",
-			"name": "Getting Specified Notes",
-			"url": "localhost:5000/notes/{{noteId}}",
-			"time": 18,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response status code should have 200 value": true,
-				"response Content-Type header should have application/json value": true,
-				"response body should be an object": true,
-				"response body should have the correct property and value": true,
-				"response body data should contain note object": true,
-				"note object should contain correct value for id, title, body, and tags property": true
-			},
-			"testPassFailCounts": {
-				"response status code should have 200 value": {
-					"pass": 1,
-					"fail": 0
-				},
-				"response Content-Type header should have application/json value": {
-					"pass": 1,
-					"fail": 0
-				},
-				"response body should be an object": {
-					"pass": 1,
-					"fail": 0
-				},
-				"response body should have the correct property and value": {
-					"pass": 1,
-					"fail": 0
-				},
-				"response body data should contain note object": {
-					"pass": 1,
-					"fail": 0
-				},
-				"note object should contain correct value for id, title, body, and tags property": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				18
-			],
-			"allTests": [
-				{
-					"response status code should have 200 value": true,
-					"response Content-Type header should have application/json value": true,
-					"response body should be an object": true,
-					"response body should have the correct property and value": true,
-					"response body data should contain note object": true,
-					"note object should contain correct value for id, title, body, and tags property": true
-				}
-			]
-		},
-		{
-			"id": "1fc00aca-89bd-4d41-aa95-edd82338151e",
-			"name": "Update Note",
-			"url": "localhost:5000/notes/{{noteId}}",
-			"time": 18,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response status code should have 200 value": true,
-				"response Content-Type header should have application/json value": true,
-				"response body should be an object": true,
-				"response body should have correct property and value": true,
-				"when request the updated note": true,
-				"then the updated note should contain the latest data": true
-			},
-			"testPassFailCounts": {
-				"response status code should have 200 value": {
-					"pass": 1,
-					"fail": 0
-				},
-				"response Content-Type header should have application/json value": {
-					"pass": 1,
-					"fail": 0
-				},
-				"response body should be an object": {
-					"pass": 1,
-					"fail": 0
-				},
-				"response body should have correct property and value": {
-					"pass": 1,
-					"fail": 0
-				},
-				"when request the updated note": {
-					"pass": 1,
-					"fail": 0
-				},
-				"then the updated note should contain the latest data": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				18
-			],
-			"allTests": [
-				{
-					"response status code should have 200 value": true,
-					"response Content-Type header should have application/json value": true,
-					"response body should be an object": true,
-					"response body should have correct property and value": true,
-					"when request the updated note": true,
-					"then the updated note should contain the latest data": true
-				}
-			]
-		},
-		{
-			"id": "75bbb02e-662c-4509-890a-5429b14afae1",
-			"name": "Update Note with Bad Payload",
-			"url": "localhost:5000/notes/{{noteId}}",
-			"time": 26,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response status code should have 400 value": true,
-				"response Content-Type header should have application/json; charset=utf-8 value": true,
-				"response body should be an object": true,
-				"response body object should have correct property and value": true
-			},
-			"testPassFailCounts": {
-				"response status code should have 400 value": {
-					"pass": 1,
-					"fail": 0
-				},
-				"response Content-Type header should have application/json; charset=utf-8 value": {
-					"pass": 1,
-					"fail": 0
-				},
-				"response body should be an object": {
-					"pass": 1,
-					"fail": 0
-				},
-				"response body object should have correct property and value": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				26
-			],
-			"allTests": [
-				{
-					"response status code should have 400 value": true,
-					"response Content-Type header should have application/json; charset=utf-8 value": true,
-					"response body should be an object": true,
-					"response body object should have correct property and value": true
-				}
-			]
-		},
-		{
-			"id": "e601e14f-b31c-4c42-9e1a-78cdd6946799",
-			"name": "Delete Note",
-			"url": "http://localhost:5000/notes/{{noteId}}",
-			"time": 19,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response status code should have 200 value": true,
-				"response Content-Type header should have application/json value": true,
-				"response body should be an object": true,
-				"response body should have correct property and value": true,
-				"when request the deleted note": true,
-				"the deleted note should be not found": true
-			},
-			"testPassFailCounts": {
-				"response status code should have 200 value": {
-					"pass": 1,
-					"fail": 0
-				},
-				"response Content-Type header should have application/json value": {
-					"pass": 1,
-					"fail": 0
-				},
-				"response body should be an object": {
-					"pass": 1,
-					"fail": 0
-				},
-				"response body should have correct property and value": {
-					"pass": 1,
-					"fail": 0
-				},
-				"when request the deleted note": {
-					"pass": 1,
-					"fail": 0
-				},
-				"the deleted note should be not found": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				19
-			],
-			"allTests": [
-				{
-					"response status code should have 200 value": true,
-					"response Content-Type header should have application/json value": true,
-					"response body should be an object": true,
-					"response body should have correct property and value": true,
-					"when request the deleted note": true,
-					"the deleted note should be not found": true
-				}
-			]
-		},
-		{
 			"id": "1ebe9483-4cfd-4466-a69a-ddbdd0e8f953",
 			"name": "Adding User",
-			"url": "localhost:5000/users",
-			"time": 106,
+			"url": "localhost:3000/users",
+			"time": 103,
 			"responseCode": {
 				"code": 201,
 				"name": "Created"
@@ -414,7 +51,7 @@
 				}
 			},
 			"times": [
-				106
+				103
 			],
 			"allTests": [
 				{
@@ -430,44 +67,44 @@
 			"id": "41528389-8794-42ab-8c10-c6b9be5f285e",
 			"name": "Adding User with Exist Username",
 			"url": "localhost:5000/users",
-			"time": 12,
+			"time": 21,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"response status code should have 400 value": true,
-				"response Content-Type header should have application/json value": true,
-				"response body should an object": true,
-				"response body should have correct property and value": true
+				"Response status code should be 400": true,
+				"Response Content-Type header should be application/json; charset=utf-8": true,
+				"Response body should be an object": true,
+				"Response body should have correct property and value": true
 			},
 			"testPassFailCounts": {
-				"response status code should have 400 value": {
+				"Response status code should be 400": {
 					"pass": 1,
 					"fail": 0
 				},
-				"response Content-Type header should have application/json value": {
+				"Response Content-Type header should be application/json; charset=utf-8": {
 					"pass": 1,
 					"fail": 0
 				},
-				"response body should an object": {
+				"Response body should be an object": {
 					"pass": 1,
 					"fail": 0
 				},
-				"response body should have correct property and value": {
+				"Response body should have correct property and value": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				12
+				21
 			],
 			"allTests": [
 				{
-					"response status code should have 400 value": true,
-					"response Content-Type header should have application/json value": true,
-					"response body should an object": true,
-					"response body should have correct property and value": true
+					"Response status code should be 400": true,
+					"Response Content-Type header should be application/json; charset=utf-8": true,
+					"Response body should be an object": true,
+					"Response body should have correct property and value": true
 				}
 			]
 		},
@@ -475,7 +112,7 @@
 			"id": "185309aa-b2ab-4d72-90b8-050a6246d05f",
 			"name": "Adding User with Bad User Payload",
 			"url": "localhost:5000/users",
-			"time": 14,
+			"time": 9,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -505,7 +142,7 @@
 				}
 			},
 			"times": [
-				14
+				9
 			],
 			"allTests": [
 				{
@@ -519,8 +156,8 @@
 		{
 			"id": "0c1f0e19-437c-4654-aed1-3a39cb8e6dcb",
 			"name": "Getting User by Correct Id",
-			"url": "localhost:5000/users/user-1IrJq2fqUpiSpzU1",
-			"time": 15,
+			"url": "localhost:5000/users/user-2-wJd2t8vs8SH_rR",
+			"time": 11,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -560,7 +197,7 @@
 				}
 			},
 			"times": [
-				15
+				11
 			],
 			"allTests": [
 				{
@@ -577,7 +214,7 @@
 			"id": "c8e9b9b4-943b-4250-aa67-a1a3db15492e",
 			"name": "Getting User by Incorrect Id",
 			"url": "localhost:5000/users/xxxx",
-			"time": 14,
+			"time": 8,
 			"responseCode": {
 				"code": 404,
 				"name": "Not Found"
@@ -607,7 +244,7 @@
 				}
 			},
 			"times": [
-				14
+				8
 			],
 			"allTests": [
 				{
@@ -617,12 +254,1205 @@
 					"response body should have correct property and value": true
 				}
 			]
+		},
+		{
+			"id": "d75a2b4b-9220-44a1-b860-1a48f5912b21",
+			"name": "Post Authentication with Valid Credentials",
+			"url": "localhost:5000/authentications",
+			"time": 96,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"response status code should have 201 value": true,
+				"response Content-Type header should have application/json value": true,
+				"response body should an object": true,
+				"response body should have correct property and value": true,
+				"response body data should have property accessToken and refreshToken with correct value": true
+			},
+			"testPassFailCounts": {
+				"response status code should have 201 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type header should have application/json value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should an object": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should have correct property and value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body data should have property accessToken and refreshToken with correct value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				96
+			],
+			"allTests": [
+				{
+					"response status code should have 201 value": true,
+					"response Content-Type header should have application/json value": true,
+					"response body should an object": true,
+					"response body should have correct property and value": true,
+					"response body data should have property accessToken and refreshToken with correct value": true
+				}
+			]
+		},
+		{
+			"id": "e1e4f0f9-dfc4-4231-9a05-af6b869bd3b9",
+			"name": "Post Authentication with Invalid Credential",
+			"url": "localhost:5000/authentications",
+			"time": 94,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"response status code should have 401 value": true,
+				"response Content-Type header should have application/json value": true,
+				"response body should an object": true,
+				"response body should have correct property and value": true
+			},
+			"testPassFailCounts": {
+				"response status code should have 401 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type header should have application/json value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should an object": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should have correct property and value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				94
+			],
+			"allTests": [
+				{
+					"response status code should have 401 value": true,
+					"response Content-Type header should have application/json value": true,
+					"response body should an object": true,
+					"response body should have correct property and value": true
+				}
+			]
+		},
+		{
+			"id": "ae6794b6-ebc8-4ae1-8547-812d9e8399e3",
+			"name": "Put Authentication with Valid Refresh Token",
+			"url": "localhost:5000/authentications",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response status code should have 200 value": true,
+				"response Content-Type header should have application/json value": true,
+				"response body should an object": true,
+				"response body should have correct property and value": true,
+				"response body data should have property accessToken with correct value": true
+			},
+			"testPassFailCounts": {
+				"response status code should have 200 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type header should have application/json value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should an object": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should have correct property and value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body data should have property accessToken with correct value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"response status code should have 200 value": true,
+					"response Content-Type header should have application/json value": true,
+					"response body should an object": true,
+					"response body should have correct property and value": true,
+					"response body data should have property accessToken with correct value": true
+				}
+			]
+		},
+		{
+			"id": "57f552fd-3fe2-436b-9f6b-7d50d9f93cef",
+			"name": "Put Authentications with Invalid Refresh Token",
+			"url": "localhost:5000/authentications",
+			"time": 15,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"response status code should have 400 value": true,
+				"response Content-Type header should have application/json value": true,
+				"response body should an object": true,
+				"response body should have correct property and value": true
+			},
+			"testPassFailCounts": {
+				"response status code should have 400 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type header should have application/json value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should an object": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should have correct property and value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				15
+			],
+			"allTests": [
+				{
+					"response status code should have 400 value": true,
+					"response Content-Type header should have application/json value": true,
+					"response body should an object": true,
+					"response body should have correct property and value": true
+				}
+			]
+		},
+		{
+			"id": "ffd6bf91-0d28-4a89-8301-5e8c8c3bb3df",
+			"name": "Delete Authentication with Valid Refresh Token",
+			"url": "localhost:5000/authentications",
+			"time": 15,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response status code should have 200 value": true,
+				"response Content-Type header should have application/json value": true,
+				"response body should an object": true,
+				"response body should have correct property and value": true
+			},
+			"testPassFailCounts": {
+				"response status code should have 200 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type header should have application/json value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should an object": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should have correct property and value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				15
+			],
+			"allTests": [
+				{
+					"response status code should have 200 value": true,
+					"response Content-Type header should have application/json value": true,
+					"response body should an object": true,
+					"response body should have correct property and value": true
+				}
+			]
+		},
+		{
+			"id": "1c519e39-d39a-48a8-92c9-de23da05b42b",
+			"name": "Delete Authentication with Invalid Refresh Token",
+			"url": "localhost:5000/authentications",
+			"time": 10,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"response status code should have 400 value": true,
+				"response Content-Type header should have application/json value": true,
+				"response body should an object": true,
+				"response body should have correct property and value": true
+			},
+			"testPassFailCounts": {
+				"response status code should have 400 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type header should have application/json value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should an object": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should have correct property and value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"response status code should have 400 value": true,
+					"response Content-Type header should have application/json value": true,
+					"response body should an object": true,
+					"response body should have correct property and value": true
+				}
+			]
+		},
+		{
+			"id": "95381b0f-0d08-4bd2-9fda-9326813c8494",
+			"name": "Adding Notes",
+			"url": "localhost:5000/notes",
+			"time": 16,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"response status code should have 201 value": true,
+				"response Content-Type header should have application/json value": true,
+				"response body should an object": true,
+				"response body should have correct property and value": true,
+				"response body data should have noteId property and not equal to empty": true
+			},
+			"testPassFailCounts": {
+				"response status code should have 201 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type header should have application/json value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should an object": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should have correct property and value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body data should have noteId property and not equal to empty": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				16
+			],
+			"allTests": [
+				{
+					"response status code should have 201 value": true,
+					"response Content-Type header should have application/json value": true,
+					"response body should an object": true,
+					"response body should have correct property and value": true,
+					"response body data should have noteId property and not equal to empty": true
+				}
+			]
+		},
+		{
+			"id": "3c1de640-0c2a-42d7-adff-865fcbae35af",
+			"name": "Adding Notes with Bad Payload",
+			"url": "localhost:5000/notes",
+			"time": 12,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"response status code should have 400 value": true,
+				"response Content-Type header should have application/json; charset=utf-8 value": true,
+				"response body should be an object": true,
+				"response body object should have correct property and value": true
+			},
+			"testPassFailCounts": {
+				"response status code should have 400 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type header should have application/json; charset=utf-8 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should be an object": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body object should have correct property and value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"response status code should have 400 value": true,
+					"response Content-Type header should have application/json; charset=utf-8 value": true,
+					"response body should be an object": true,
+					"response body object should have correct property and value": true
+				}
+			]
+		},
+		{
+			"id": "30b569da-4392-4727-8af4-4905d94a1ab6",
+			"name": "Getting All Notes",
+			"url": "localhost:5000/notes",
+			"time": 10,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response status code should have 200 value": true,
+				"response Content-Type header should have application/json value": true,
+				"response body should an object": true,
+				"response body should have the correct property and value": true,
+				"response body data should have a notes array and contain at least 1 item": true
+			},
+			"testPassFailCounts": {
+				"response status code should have 200 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type header should have application/json value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should an object": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should have the correct property and value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body data should have a notes array and contain at least 1 item": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"response status code should have 200 value": true,
+					"response Content-Type header should have application/json value": true,
+					"response body should an object": true,
+					"response body should have the correct property and value": true,
+					"response body data should have a notes array and contain at least 1 item": true
+				}
+			]
+		},
+		{
+			"id": "77e0b730-9f27-46c6-b266-d274ca9cc6d8",
+			"name": "Getting Specified Notes",
+			"url": "localhost:5000/notes/_uCDm4H5QcO0oMhr",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response status code should have 200 value": true,
+				"response Content-Type header should have application/json value": true,
+				"response body should be an object": true,
+				"response body should have the correct property and value": true,
+				"response body data should contain note object": true,
+				"note object should contain correct value for id, title, body, and tags property": true
+			},
+			"testPassFailCounts": {
+				"response status code should have 200 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type header should have application/json value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should be an object": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should have the correct property and value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body data should contain note object": {
+					"pass": 1,
+					"fail": 0
+				},
+				"note object should contain correct value for id, title, body, and tags property": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"response status code should have 200 value": true,
+					"response Content-Type header should have application/json value": true,
+					"response body should be an object": true,
+					"response body should have the correct property and value": true,
+					"response body data should contain note object": true,
+					"note object should contain correct value for id, title, body, and tags property": true
+				}
+			]
+		},
+		{
+			"id": "1fc00aca-89bd-4d41-aa95-edd82338151e",
+			"name": "Update Note",
+			"url": "localhost:5000/notes/_uCDm4H5QcO0oMhr",
+			"time": 15,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response status code should have 200 value": true,
+				"response Content-Type header should have application/json value": true,
+				"response body should be an object": true,
+				"response body should have correct property and value": true,
+				"when request the updated note": true
+			},
+			"testPassFailCounts": {
+				"response status code should have 200 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type header should have application/json value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should be an object": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should have correct property and value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"when request the updated note": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				15
+			],
+			"allTests": [
+				{
+					"response status code should have 200 value": true,
+					"response Content-Type header should have application/json value": true,
+					"response body should be an object": true,
+					"response body should have correct property and value": true,
+					"when request the updated note": true
+				}
+			]
+		},
+		{
+			"id": "75bbb02e-662c-4509-890a-5429b14afae1",
+			"name": "Update Note with Bad Payload",
+			"url": "localhost:5000/notes/_uCDm4H5QcO0oMhr",
+			"time": 11,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"response status code should have 400 value": true,
+				"response Content-Type header should have application/json; charset=utf-8 value": true,
+				"response body should be an object": true,
+				"response body object should have correct property and value": true
+			},
+			"testPassFailCounts": {
+				"response status code should have 400 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type header should have application/json; charset=utf-8 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should be an object": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body object should have correct property and value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"response status code should have 400 value": true,
+					"response Content-Type header should have application/json; charset=utf-8 value": true,
+					"response body should be an object": true,
+					"response body object should have correct property and value": true
+				}
+			]
+		},
+		{
+			"id": "e601e14f-b31c-4c42-9e1a-78cdd6946799",
+			"name": "Delete Note",
+			"url": "http://localhost:5000/notes/_uCDm4H5QcO0oMhr",
+			"time": 15,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response status code should have 200 value": true,
+				"response Content-Type header should have application/json value": true,
+				"response body should be an object": true,
+				"response body should have correct property and value": true,
+				"when request the deleted note": true
+			},
+			"testPassFailCounts": {
+				"response status code should have 200 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type header should have application/json value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should be an object": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should have correct property and value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"when request the deleted note": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				15
+			],
+			"allTests": [
+				{
+					"response status code should have 200 value": true,
+					"response Content-Type header should have application/json value": true,
+					"response body should be an object": true,
+					"response body should have correct property and value": true,
+					"when request the deleted note": true
+				}
+			]
+		},
+		{
+			"id": "9441c33b-c677-4fdf-b3af-e299ac532264",
+			"name": "Getting All Notes without Access Token",
+			"url": "localhost:5000/notes",
+			"time": 9,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"response status code should have 401 value": true,
+				"response Content-Type header should have application/json value": true
+			},
+			"testPassFailCounts": {
+				"response status code should have 401 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type header should have application/json value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"response status code should have 401 value": true,
+					"response Content-Type header should have application/json value": true
+				}
+			]
+		},
+		{
+			"id": "f3ff783e-d209-4fee-89b0-3eca15a03cc5",
+			"name": "Adding Notes using User A",
+			"url": "localhost:5000/notes",
+			"time": 16,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"response status code should have 201 value": true,
+				"response Content-Type header should have application/json value": true,
+				"response body data should contains note id": true
+			},
+			"testPassFailCounts": {
+				"response status code should have 201 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type header should have application/json value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body data should contains note id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				16
+			],
+			"allTests": [
+				{
+					"response status code should have 201 value": true,
+					"response Content-Type header should have application/json value": true,
+					"response body data should contains note id": true
+				}
+			]
+		},
+		{
+			"id": "51a259d9-f048-4aad-bfd3-4ba02fedae81",
+			"name": "Adding Notes using User B",
+			"url": "localhost:5000/notes",
+			"time": 37,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"response status code should have 201 value": true,
+				"response Content-Type header should have application/json value": true,
+				"response body data should contains note id": true
+			},
+			"testPassFailCounts": {
+				"response status code should have 201 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type header should have application/json value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body data should contains note id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				37
+			],
+			"allTests": [
+				{
+					"response status code should have 201 value": true,
+					"response Content-Type header should have application/json value": true,
+					"response body data should contains note id": true
+				}
+			]
+		},
+		{
+			"id": "aa1590ea-b666-4f4b-8c58-42793bdf8b1e",
+			"name": "Getting All Notes using User A",
+			"url": "localhost:5000/notes",
+			"time": 25,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response status code should have 200 value": true,
+				"response Content-Type header should have application/json value": true,
+				"response body data should contains notes array with 1 item": true
+			},
+			"testPassFailCounts": {
+				"response status code should have 200 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type header should have application/json value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body data should contains notes array with 1 item": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				25
+			],
+			"allTests": [
+				{
+					"response status code should have 200 value": true,
+					"response Content-Type header should have application/json value": true,
+					"response body data should contains notes array with 1 item": true
+				}
+			]
+		},
+		{
+			"id": "df98fd27-bfd6-450c-af23-539d2535c280",
+			"name": "Getting All Notes using User B",
+			"url": "localhost:5000/notes",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response status code should have 200 value": true,
+				"response Content-Type header should have application/json value": true,
+				"response body data should contains notes array with 1 item": true
+			},
+			"testPassFailCounts": {
+				"response status code should have 200 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type header should have application/json value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body data should contains notes array with 1 item": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"response status code should have 200 value": true,
+					"response Content-Type header should have application/json value": true,
+					"response body data should contains notes array with 1 item": true
+				}
+			]
+		},
+		{
+			"id": "efcd6819-9fc7-440c-9fac-0019620f5b01",
+			"name": "Getting Note Owned by User A using User A",
+			"url": "localhost:5000/notes/2P3Cvni5sYKxjt5Y",
+			"time": 15,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response status code should have 200 value": true,
+				"response Content-Type header should have application/json value": true,
+				"response body data should contains object note": true
+			},
+			"testPassFailCounts": {
+				"response status code should have 200 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type header should have application/json value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body data should contains object note": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				15
+			],
+			"allTests": [
+				{
+					"response status code should have 200 value": true,
+					"response Content-Type header should have application/json value": true,
+					"response body data should contains object note": true
+				}
+			]
+		},
+		{
+			"id": "cfef42e2-0633-4650-8d4e-5df3baafbee5",
+			"name": "Getting Note Owned by User B using User B",
+			"url": "localhost:5000/notes/9NKenWX4j23tL98N",
+			"time": 25,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response status code should have 200 value": true,
+				"response Content-Type header should have application/json value": true,
+				"response body data should contains object note": true
+			},
+			"testPassFailCounts": {
+				"response status code should have 200 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type header should have application/json value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body data should contains object note": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				25
+			],
+			"allTests": [
+				{
+					"response status code should have 200 value": true,
+					"response Content-Type header should have application/json value": true,
+					"response body data should contains object note": true
+				}
+			]
+		},
+		{
+			"id": "cfb1ca91-c4c6-446a-a888-36b337e213b9",
+			"name": "Getting Note Owned by User A using User B",
+			"url": "localhost:5000/notes/2P3Cvni5sYKxjt5Y",
+			"time": 36,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"response status code should have 403 value": true,
+				"response Content-Type header should have application/json value": true,
+				"response body should contain correct value": true
+			},
+			"testPassFailCounts": {
+				"response status code should have 403 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type header should have application/json value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should contain correct value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				36
+			],
+			"allTests": [
+				{
+					"response status code should have 403 value": true,
+					"response Content-Type header should have application/json value": true,
+					"response body should contain correct value": true
+				}
+			]
+		},
+		{
+			"id": "b5539316-4d27-4e68-8c91-4d26fc65c9db",
+			"name": "Update Note Owned by User A using User A",
+			"url": "localhost:5000/notes/2P3Cvni5sYKxjt5Y",
+			"time": 28,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response status code should have 200 value": true,
+				"response Content-Type header should have application/json value": true
+			},
+			"testPassFailCounts": {
+				"response status code should have 200 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type header should have application/json value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				28
+			],
+			"allTests": [
+				{
+					"response status code should have 200 value": true,
+					"response Content-Type header should have application/json value": true
+				}
+			]
+		},
+		{
+			"id": "1a52e0d9-52ea-42ab-ad0c-e5d910754ed6",
+			"name": "Update Note Owned by User B using User B",
+			"url": "localhost:5000/notes/9NKenWX4j23tL98N",
+			"time": 23,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response status code should have 200 value": true,
+				"response Content-Type header should have application/json value": true
+			},
+			"testPassFailCounts": {
+				"response status code should have 200 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type header should have application/json value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				23
+			],
+			"allTests": [
+				{
+					"response status code should have 200 value": true,
+					"response Content-Type header should have application/json value": true
+				}
+			]
+		},
+		{
+			"id": "e8a8b5a8-66fe-4ef9-8d17-8f592b882374",
+			"name": "Update Note Owned by User A using User B",
+			"url": "localhost:5000/notes/2P3Cvni5sYKxjt5Y",
+			"time": 19,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"response status code should have 403 value": true,
+				"response Content-Type header should have application/json value": true,
+				"response body should contain correct value": true
+			},
+			"testPassFailCounts": {
+				"response status code should have 403 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type header should have application/json value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should contain correct value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				19
+			],
+			"allTests": [
+				{
+					"response status code should have 403 value": true,
+					"response Content-Type header should have application/json value": true,
+					"response body should contain correct value": true
+				}
+			]
+		},
+		{
+			"id": "1ed66a9e-4bb4-46e6-b58d-d34e8dc5f237",
+			"name": "Delete Note Owned by User A using User B",
+			"url": "localhost:5000/notes/2P3Cvni5sYKxjt5Y",
+			"time": 34,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"response status code should have 403 value": true,
+				"response Content-Type header should have application/json value": true,
+				"response body should contain correct value": true
+			},
+			"testPassFailCounts": {
+				"response status code should have 403 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type header should have application/json value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should contain correct value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				34
+			],
+			"allTests": [
+				{
+					"response status code should have 403 value": true,
+					"response Content-Type header should have application/json value": true,
+					"response body should contain correct value": true
+				}
+			]
+		},
+		{
+			"id": "bee12aa5-4270-439e-b6f7-5d58b93deaa2",
+			"name": "Delete Note Owned by User A using User A",
+			"url": "localhost:5000/notes/2P3Cvni5sYKxjt5Y",
+			"time": 18,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response status code should have 200 value": true,
+				"response Content-Type header should have application/json value": true
+			},
+			"testPassFailCounts": {
+				"response status code should have 200 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type header should have application/json value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				18
+			],
+			"allTests": [
+				{
+					"response status code should have 200 value": true,
+					"response Content-Type header should have application/json value": true
+				}
+			]
+		},
+		{
+			"id": "bc828d74-7c59-4be5-89b0-509f7944783f",
+			"name": "Delete Note Owned by User B using User B",
+			"url": "localhost:5000/notes/9NKenWX4j23tL98N",
+			"time": 24,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response status code should have 200 value": true,
+				"response Content-Type header should have application/json value": true
+			},
+			"testPassFailCounts": {
+				"response status code should have 200 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type header should have application/json value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				24
+			],
+			"allTests": [
+				{
+					"response status code should have 200 value": true,
+					"response Content-Type header should have application/json value": true
+				}
+			]
 		}
 	],
 	"count": 1,
-	"totalTime": 284,
+	"totalTime": 801,
 	"collection": {
 		"requests": [
+			{
+				"id": "1ebe9483-4cfd-4466-a69a-ddbdd0e8f953",
+				"method": "POST"
+			},
+			{
+				"id": "41528389-8794-42ab-8c10-c6b9be5f285e",
+				"method": "POST"
+			},
+			{
+				"id": "185309aa-b2ab-4d72-90b8-050a6246d05f",
+				"method": "POST"
+			},
+			{
+				"id": "0c1f0e19-437c-4654-aed1-3a39cb8e6dcb",
+				"method": "GET"
+			},
+			{
+				"id": "c8e9b9b4-943b-4250-aa67-a1a3db15492e",
+				"method": "GET"
+			},
+			{
+				"id": "d75a2b4b-9220-44a1-b860-1a48f5912b21",
+				"method": "POST"
+			},
+			{
+				"id": "e1e4f0f9-dfc4-4231-9a05-af6b869bd3b9",
+				"method": "POST"
+			},
+			{
+				"id": "ae6794b6-ebc8-4ae1-8547-812d9e8399e3",
+				"method": "PUT"
+			},
+			{
+				"id": "57f552fd-3fe2-436b-9f6b-7d50d9f93cef",
+				"method": "PUT"
+			},
+			{
+				"id": "ffd6bf91-0d28-4a89-8301-5e8c8c3bb3df",
+				"method": "DELETE"
+			},
+			{
+				"id": "1c519e39-d39a-48a8-92c9-de23da05b42b",
+				"method": "DELETE"
+			},
 			{
 				"id": "95381b0f-0d08-4bd2-9fda-9326813c8494",
 				"method": "POST"
@@ -652,24 +1482,60 @@
 				"method": "DELETE"
 			},
 			{
-				"id": "1ebe9483-4cfd-4466-a69a-ddbdd0e8f953",
-				"method": "POST"
-			},
-			{
-				"id": "41528389-8794-42ab-8c10-c6b9be5f285e",
-				"method": "POST"
-			},
-			{
-				"id": "185309aa-b2ab-4d72-90b8-050a6246d05f",
-				"method": "POST"
-			},
-			{
-				"id": "0c1f0e19-437c-4654-aed1-3a39cb8e6dcb",
+				"id": "9441c33b-c677-4fdf-b3af-e299ac532264",
 				"method": "GET"
 			},
 			{
-				"id": "c8e9b9b4-943b-4250-aa67-a1a3db15492e",
+				"id": "f3ff783e-d209-4fee-89b0-3eca15a03cc5",
+				"method": "POST"
+			},
+			{
+				"id": "51a259d9-f048-4aad-bfd3-4ba02fedae81",
+				"method": "POST"
+			},
+			{
+				"id": "aa1590ea-b666-4f4b-8c58-42793bdf8b1e",
 				"method": "GET"
+			},
+			{
+				"id": "df98fd27-bfd6-450c-af23-539d2535c280",
+				"method": "GET"
+			},
+			{
+				"id": "efcd6819-9fc7-440c-9fac-0019620f5b01",
+				"method": "GET"
+			},
+			{
+				"id": "cfef42e2-0633-4650-8d4e-5df3baafbee5",
+				"method": "GET"
+			},
+			{
+				"id": "cfb1ca91-c4c6-446a-a888-36b337e213b9",
+				"method": "GET"
+			},
+			{
+				"id": "b5539316-4d27-4e68-8c91-4d26fc65c9db",
+				"method": "PUT"
+			},
+			{
+				"id": "1a52e0d9-52ea-42ab-ad0c-e5d910754ed6",
+				"method": "PUT"
+			},
+			{
+				"id": "e8a8b5a8-66fe-4ef9-8d17-8f592b882374",
+				"method": "PUT"
+			},
+			{
+				"id": "1ed66a9e-4bb4-46e6-b58d-d34e8dc5f237",
+				"method": "DELETE"
+			},
+			{
+				"id": "bee12aa5-4270-439e-b6f7-5d58b93deaa2",
+				"method": "DELETE"
+			},
+			{
+				"id": "bc828d74-7c59-4be5-89b0-509f7944783f",
+				"method": "DELETE"
 			}
 		]
 	}
