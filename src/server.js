@@ -1,4 +1,5 @@
 const Hapi = require("@hapi/hapi");
+const Jwt = require("@hapi/jwt");
 const dotenv = require("dotenv");
 
 // notes
@@ -10,6 +11,12 @@ const NotesValidator = require("./validator/notes");
 const users = require("./api/users");
 const UsersService = require("./services/postgres/UsersService");
 const UsersValidator = require("./validator/users");
+
+// authentications
+const TokenManager = require("./tokenize/TokenManager");
+const authentications = require("./api/auth");
+const AuthenticationsService = require("./services/postgres/AuthService");
+const AuthenticationsValidator = require("./validator/auth");
 
 const RequestService = require("./services/RequestService");
 const ClientError = require("./exceptions/ClientError");
@@ -33,6 +40,29 @@ const createServer = () => {
 const registerPlugins = async server => {
 	await server.register([
 		{
+			plugin: Jwt
+		}
+	]);
+
+	// mendefinisikan strategy autentikasi jwt
+	server.auth.strategy("notesapp_jwt", "jwt", {
+		keys: process.env.ACCESS_TOKEN_KEY,
+		verify: {
+			aud: false,
+			iss: false,
+			sub: false,
+			maxAgeSec: process.env.ACCESS_TOKEN_AGE
+		},
+		validate: artifacts => ({
+			isValid: true,
+			credentials: {
+				id: artifacts.decoded.payload.id
+			}
+		})
+	});
+
+	await server.register([
+		{
 			plugin: notes,
 			options: {
 				service: new NotesService(),
@@ -44,6 +74,15 @@ const registerPlugins = async server => {
 			options: {
 				service: new UsersService(),
 				validator: UsersValidator
+			}
+		},
+		{
+			plugin: authentications,
+			options: {
+				authenticationsService: new AuthenticationsService(),
+				usersService: new UsersService(),
+				tokenManager: TokenManager,
+				validator: AuthenticationsValidator
 			}
 		}
 	]);
