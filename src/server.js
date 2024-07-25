@@ -14,11 +14,12 @@ const UsersValidator = require("./validator/users");
 
 // authentications
 const TokenManager = require("./tokenize/TokenManager");
+
 const authentications = require("./api/auth");
 const AuthenticationsService = require("./services/postgres/AuthService");
 const AuthenticationsValidator = require("./validator/auth");
 
-const RequestService = require("./services/RequestService");
+const RequestService = require("./services/utils/RequestService");
 const ClientError = require("./exceptions/ClientError");
 
 dotenv.config();
@@ -49,8 +50,8 @@ const registerPlugins = async server => {
 		keys: process.env.ACCESS_TOKEN_KEY,
 		verify: {
 			aud: false,
-			iss: false,
-			sub: false,
+			iss: "farismnrr",
+			sub: "Dicoding",
 			maxAgeSec: process.env.ACCESS_TOKEN_AGE
 		},
 		validate: artifacts => ({

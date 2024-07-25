@@ -1,18 +1,19 @@
 {
 	"name": "notes-app-back-end",
-	"version": "1.1-postgres",
-	"description": "A RESTful API back-end application built with Node.js, Hapi, and Bun, providing a simple note-taking service.",
+	"version": "2.0-postgres",
+	"description": "A RESTful API back-end application built with Node.js, Hapi, Bun, and PostgreSQL, providing a simple note-taking service.",
 	"main": "server.js",
 	"type": "commonjs",
 	"scripts": {
-		"build:local": "npm install && bun run copy-env && bun run migrate up && bun run start:dev",
-		"build:server": "npm install && bun run copy-env && echo HOST=0.0.0.0 > .env.production && bun run migrate up && sudo npm i -g pm2 && pm2 start bun --name \"notes-app-back-end\" -- run start:prod",
-		"build:docker": "docker build -t notes-app . && docker run -d -p 5000:5000 --name notes-app notes-app",
+		"build:local": "npm install && bun run copy-env && bun run generate-token && bun run migrate up && bun run start:dev",
+		"build:server": "npm install && bun run copy-env && bun run generate-token && echo HOST=0.0.0.0 > .env.production && bun run migrate up && sudo npm i -g pm2 && pm2 start bun --name \"notes-app-back-end\" -- run start:prod",
+		"build:docker": "docker build -t farismnrr/notes-app:2.0-postgres . && bun run start:docker",
 		"start": "node src/server.js",
 		"start:dev": "cross-env NODE_ENV=development nodemon --watch src --ext js --exec \"bun run src/server.js\"",
 		"start:prod": "cross-env NODE_ENV=production bun run src/server.js",
-		"start:docker": "docker run -d -p 5000:5000 --name notes-app farismnrr/notes-app:1.1-postgres",
+		"start:docker": "docker run -d -p 5000:5000 --name notes-app farismnrr/notes-app:2.0-postgres",
 		"copy-env": "bun -e \"const fs = require('fs'); fs.copyFileSync('.env.example', '.env');\" || cp .env.example .env",
+		"generate-token": "bun src/tokenize/TokenGenerator.js",
 		"migrate": "node-pg-migrate"
 	},
 	"keywords": [
@@ -26,7 +27,8 @@
 		"typescript",
 		"api",
 		"restful",
-		"server"
+		"server",
+		"postgres"
 	],
 	"author": "farismnrr",
 	"license": "ISC",
@@ -49,6 +51,7 @@
 		"joi": "^17.13.3",
 		"nanoid": "^3.3.4",
 		"node-pg-migrate": "^7.5.2",
-		"pg": "^8.12.0"
+		"pg": "^8.12.0",
+		"shelljs": "^0.8.5"
 	}
 }
