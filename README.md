@@ -9,7 +9,7 @@
 ```bash
 wget https://storage.googleapis.com/farismnrr-gclouds.appspot.com/requirements-install/notes-ubuntu.sh
 chmod +x notes-ubuntu.sh
-sudo bash -E notes-ubuntu.sh
+./notes-ubuntu.sh
 ```
 
 #### 2. Install on Debian
@@ -17,7 +17,7 @@ sudo bash -E notes-ubuntu.sh
 ```bash
 wget https://storage.googleapis.com/farismnrr-gclouds.appspot.com/requirements-install/notes-debian.sh
 chmod +x notes-debian.sh
-sudo bash -E notes-debian.sh
+./notes-debian.sh
 ```
 
 ## How to Run Program
