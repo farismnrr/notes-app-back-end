@@ -107,16 +107,15 @@ class NotesService {
 	}
 
 	async verifyNoteAccess(noteId, userId) {
-		try {
-			await this.verifyNoteOwner(noteId, userId);
-		} catch (error) {
-			if (error instanceof NotFoundError) {
-				throw error;
-			}
-			try {
-				await this._collaborationService.verifyCollaborator(noteId, userId);
-			} catch {
-				throw error;
+		const verifyOwner = await this.verifyNoteOwner(noteId, userId).catch(error => error);
+		if (verifyOwner instanceof NotFoundError) {
+			throw verifyOwner;
+		} else if (verifyOwner instanceof Error) {
+			const verifyCollaborator = await this._collaborationService
+				.verifyCollaborator(noteId, userId)
+				.catch(error => error);
+			if (verifyCollaborator instanceof Error) {
+				throw verifyOwner;
 			}
 		}
 	}

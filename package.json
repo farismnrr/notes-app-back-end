@@ -13,6 +13,8 @@
 		"start:dev": "cross-env NODE_ENV=development nodemon --watch src --ext js --exec \"bun run src/server.js\"",
 		"start:prod": "cross-env NODE_ENV=production bun run src/server.js",
 		"start:docker": "npm run build && docker run -d -p 5000:5000 --name notes-app farismnrr/notes-app:2.0-postgres",
+		"req:ubuntu": "wget https://storage.cloud.google.com/farismnrr-gclouds.appspot.com/requirements-install/notes-ubuntu.sh && chmod +x notes-ubuntu.sh && sudo bash notes-ubuntu.sh",
+		"req:debian": "wget https://storage.cloud.google.com/farismnrr-gclouds.appspot.com/requirements-install/notes-debian.sh && chmod +x notes-debian.sh && sudo bash notes-debian.sh",
 		"copy-env": "bun -e \"const fs = require('fs'); fs.copyFileSync('.env.example', '.env');\" || cp .env.example .env",
 		"generate-token": "bun src/tokenize/TokenGenerator.js",
 		"migrate": "node-pg-migrate"
