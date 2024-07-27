@@ -18,6 +18,11 @@ const authentications = require("./api/auth");
 const AuthenticationsService = require("./services/postgres/AuthService");
 const AuthenticationsValidator = require("./validator/auth");
 
+// collaborations
+const collaborations = require("./api/collab");
+const CollaborationsService = require("./services/postgres/CollabService");
+const CollaborationsValidator = require("./validator/collab");
+
 const RequestService = require("./services/RequestService");
 const ClientError = require("./exceptions/ClientError");
 
@@ -61,28 +66,41 @@ const registerPlugins = async server => {
 		})
 	});
 
+	const usersService = new UsersService();
+	const collaborationsService = new CollaborationsService();
+	const authenticationsService = new AuthenticationsService();
+	const notesService = new NotesService(collaborationsService);
+
 	await server.register([
 		{
 			plugin: notes,
 			options: {
-				service: new NotesService(),
+				service: notesService,
 				validator: NotesValidator
 			}
 		},
 		{
 			plugin: users,
 			options: {
-				service: new UsersService(),
+				service: usersService,
 				validator: UsersValidator
 			}
 		},
 		{
 			plugin: authentications,
 			options: {
-				authenticationsService: new AuthenticationsService(),
-				usersService: new UsersService(),
+				authenticationsService: authenticationsService,
+				usersService: usersService,
 				tokenManager: TokenManager,
 				validator: AuthenticationsValidator
+			}
+		},
+		{
+			plugin: collaborations,
+			options: {
+				collaborationsService: collaborationsService,
+				notesService: notesService,
+				validator: CollaborationsValidator
 			}
 		}
 	]);
