@@ -5,17 +5,19 @@
 ## Install Requirements
 
 #### 1. Install on Ubuntu
+
 ```bash
-wget https://storage.cloud.google.com/farismnrr-gclouds.appspot.com/requirements-install/notes-ubuntu.sh
+wget gs://farismnrr-gclouds.appspot.com/requirements-install/notes-ubuntu.sh
 chmod +x notes-ubuntu.sh
-sudo bash notes-ubuntu.sh
+sudo bash -E notes-ubuntu.sh
 ```
 
 #### 2. Install on Debian
+
 ```bash
-wget https://storage.cloud.google.com/farismnrr-gclouds.appspot.com/requirements-install/notes-debian.sh
+wget gs://farismnrr-gclouds.appspot.com/requirements-install/notes-debian.sh
 chmod +x notes-debian.sh
-sudo bash notes-debian.sh
+sudo bash -E notes-debian.sh
 ```
 
 ## How to Run Program
