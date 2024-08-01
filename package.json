@@ -29,7 +29,9 @@
 		"api",
 		"restful",
 		"server",
-		"postgres"
+		"postgres",
+		"redis",
+		"rabbitmq"
 	],
 	"author": "farismnrr",
 	"license": "ISC",
@@ -55,6 +57,7 @@
 		"nanoid": "^3.3.4",
 		"node-pg-migrate": "^7.5.2",
 		"nodemailer": "^6.9.14",
-		"pg": "^8.12.0"
+		"pg": "^8.12.0",
+		"redis": "^4.7.0"
 	}
 }

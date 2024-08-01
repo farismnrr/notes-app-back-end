@@ -35,6 +35,7 @@ const uploads = require("./api/uploads");
 const StorageService = require("./services/storage/StorageService");
 const UploadsValidator = require("./validator/uploads");
 
+const CacheService = require("./services/redis/CacheService");
 const RequestService = require("./services/RequestService");
 const ClientError = require("./exceptions/ClientError");
 
@@ -81,10 +82,11 @@ const registerPlugins = async server => {
 		})
 	});
 
+	const cacheService = new CacheService();
 	const usersService = new UsersService();
-	const collaborationsService = new CollaborationsService();
 	const authenticationsService = new AuthenticationsService();
-	const notesService = new NotesService(collaborationsService);
+	const collaborationsService = new CollaborationsService(cacheService);
+	const notesService = new NotesService(collaborationsService, cacheService);
 	const storageService = new StorageService(
 		path.resolve(__dirname, "../../assets/uploads/file/images")
 	);
