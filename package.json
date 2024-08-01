@@ -9,12 +9,13 @@
 		"build:local": "npm run build && bun run start:dev",
 		"build:server": "npm run build && echo HOST=0.0.0.0 > .env.production && sudo npm i -g pm2 && pm2 start bun --name \"notes-app-back-end\" -- run start:prod",
 		"build:docker": "docker build -t farismnrr/notes-app:2.1-postgres . && bun run start:docker",
-		"start": "bun run src/server.js",
-		"start:dev": "cross-env NODE_ENV=development nodemon --watch src --ext js --exec \"bun run src/server.js\"",
-		"start:prod": "cross-env NODE_ENV=production bun run src/server.js",
+		"start": "bun run src/producer/server.js",
+		"start:dev": "cross-env NODE_ENV=development nodemon --watch src --ext js --exec \"bun run src/producer/server.js\"",
+		"start:prod": "cross-env NODE_ENV=production bun run src/producer/server.js",
 		"start:docker": "npm run build && docker run -d -p 5000:5000 --name notes-app farismnrr/notes-app:2.1-postgres",
+		"send": "bun run src/consumer/consumer.js",
 		"copy-env": "bun -e \"const fs = require('fs'); fs.copyFileSync('.env.example', '.env');\" || cp .env.example .env",
-		"generate-token": "bun src/tokenize/TokenGenerator.js",
+		"generate-token": "bun run src/producer/tokenize/TokenGenerator.js",
 		"migrate": "node-pg-migrate"
 	},
 	"keywords": [
@@ -45,6 +46,7 @@
 	"dependencies": {
 		"@hapi/hapi": "^21.3.10",
 		"@hapi/jwt": "^3.2.0",
+		"amqplib": "^0.10.4",
 		"bcrypt": "^5.1.1",
 		"bun": "^1.1.18",
 		"cross-env": "^7.0.3",
@@ -52,6 +54,7 @@
 		"joi": "^17.13.3",
 		"nanoid": "^3.3.4",
 		"node-pg-migrate": "^7.5.2",
+		"nodemailer": "^6.9.14",
 		"pg": "^8.12.0"
 	}
 }

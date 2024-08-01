@@ -23,6 +23,11 @@ const collaborations = require("./api/collab");
 const CollaborationsService = require("./services/postgres/CollabService");
 const CollaborationsValidator = require("./validator/collab");
 
+// Exports
+const _exports = require("./api/exports");
+const ProducerService = require("./services/rabbitmq/ProducerService");
+const ExportsValidator = require("./validator/exports");
+
 const RequestService = require("./services/RequestService");
 const ClientError = require("./exceptions/ClientError");
 
@@ -101,6 +106,13 @@ const registerPlugins = async server => {
 				collaborationsService: collaborationsService,
 				notesService: notesService,
 				validator: CollaborationsValidator
+			}
+		},
+		{
+			plugin: _exports,
+			options: {
+				service: ProducerService,
+				validator: ExportsValidator
 			}
 		}
 	]);
