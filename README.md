@@ -7,17 +7,27 @@
 #### 1. Install on Ubuntu
 
 ```bash
-wget https://storage.googleapis.com/farismnrr-gclouds.appspot.com/requirements-install/notes-ubuntu.sh
-chmod +x notes-ubuntu.sh
-./notes-ubuntu.sh
+chmod +x install-ubuntu.sh
+./install-ubuntu.sh
+```
+
+Update `.bashrc`
+
+```bash
+source ~/.bashrc
 ```
 
 #### 2. Install on Debian
 
 ```bash
-wget https://storage.googleapis.com/farismnrr-gclouds.appspot.com/requirements-install/notes-debian.sh
-chmod +x notes-debian.sh
-./notes-debian.sh
+chmod +x install-debian.sh
+./install-debian.sh
+```
+
+Update `.bashrc`
+
+```bash
+source ~/.bashrc
 ```
 
 ## How to Run Program
@@ -38,14 +48,6 @@ npm run build:server
 
 #### 4. Run on Docker
 
--   Build Docker Image
-
 ```bash
 npm run build:docker
-```
-
--   Run Docker Container
-
-```bash
-npm run start:docker
 ```
