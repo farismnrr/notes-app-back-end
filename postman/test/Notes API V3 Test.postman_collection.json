@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "4331b0bb-e3ea-472e-820f-3fbba845c59c",
-		"name": "Notes API V2 Test",
+		"name": "Notes API V3 Test",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "30262904"
 	},
@@ -542,8 +542,11 @@
 							"listen": "prerequest",
 							"script": {
 								"exec": [
+									"const url = pm.environment.get('url');\r",
+									"const port = pm.environment.get('port');\r",
+									"\r",
 									"const postRequest = {\r",
-									"    url: 'http://localhost:3000/users',\r",
+									"    url: `http://${url}:${port}/users`,\r",
 									"    method: 'POST',\r",
 									"    header: {\r",
 									"    'Content-Type': 'application/json',\r",
@@ -1322,8 +1325,11 @@
 									" \r",
 									"pm.test('when request the updated note', () => {\r",
 									"    const noteId = pm.environment.get('noteId');\r",
+									"    const url = pm.environment.get('url');\r",
+									"    const port = pm.environment.get('port');\r",
+									"\r",
 									"    const getRequest = {\r",
-									"        url: `http://localhost:3000/notes/${noteId}`,\r",
+									"        url: `http://${url}:${port}/notes/${noteId}`,\r",
 									"        method: 'GET',\r",
 									"        header: {\r",
 									"            'Authorization': `Bearer ${pm.environment.get('accessToken')}`,\r",
@@ -1514,8 +1520,11 @@
 									" \r",
 									"pm.test('when request the deleted note', () => {\r",
 									"    const noteId = pm.environment.get('noteId');\r",
+									"    const url = pm.environment.get('url');\r",
+									"    const port = pm.environment.get('port');\r",
+									"    \r",
 									"    const getRequest = {\r",
-									"        url: `http://localhost:3000/notes/${noteId}`,\r",
+									"        url: `http://${url}:${port}/notes/${noteId}`,\r",
 									"        method: 'GET',\r",
 									"        header: {\r",
 									"            'Authorization': `Bearer ${pm.environment.get('accessToken')}`,\r",
@@ -1527,11 +1536,21 @@
 									"                pm.expect(response.code).to.equals(404);\r",
 									"                const responseJson = response.json();\r",
 									"                pm.expect(responseJson.status).to.equals('fail');\r",
-									"                pm.expect(responseJson.message).to.equals('Catatan tidak ditemukan');\r",
+									"                pm.expect(responseJson.message).to.equals('Resource yang Anda minta tidak ditemukan');\r",
 									"            });\r",
 									"        }\r",
 									"    });\r",
 									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -1552,8 +1571,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://{{url}}:{{port}}/notes/{{noteId}}",
-							"protocol": "http",
+							"raw": "{{url}}:{{port}}/notes/{{noteId}}",
 							"host": [
 								"{{url}}"
 							],
@@ -3290,6 +3308,255 @@
 							"            // memasukkan access token Owner User ke environment variabel\r",
 							"            const { data: { accessToken } } = response.json();\r",
 							"            pm.environment.set('collaboratorAccessToken', accessToken);\r",
+							"        }\r",
+							"    });\r",
+							"});"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Exports",
+			"item": [
+				{
+					"name": "Exports Notes with Valid Payload",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('response code should have 201 value', () => {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									" \r",
+									"pm.test('response Content-Type header should have application/json value', () => {\r",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.equals('application/json; charset=utf-8');\r",
+									"});\r",
+									" \r",
+									"pm.test('response body should be an object', () => {\r",
+									"   const responseJson = pm.response.json();\r",
+									"   pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									" \r",
+									"pm.test('response body should have the correct property and value', () => {\r",
+									"   const responseJson = pm.response.json();\r",
+									" \r",
+									"   pm.expect(responseJson).to.have.ownProperty('status');\r",
+									"   pm.expect(responseJson.status).to.equals('success');\r",
+									"   pm.expect(responseJson).to.have.ownProperty('message');\r",
+									"   pm.expect(responseJson.message).to.equals('Permintaan Anda dalam antrean');\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessTokenUserA}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"targetEmail\": \"{{targetEmail}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}:{{port}}/export/notes",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"export",
+								"notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Exports Notes with Bad Payload",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('response code should have 400 value', () => {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									" \r",
+									"pm.test('response Content-Type header should have application/json value', () => {\r",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.equals('application/json; charset=utf-8');\r",
+									"});\r",
+									" \r",
+									"pm.test('response body should be an object', () => {\r",
+									"   const responseJson = pm.response.json();\r",
+									"   pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									" \r",
+									"pm.test('response body should have the correct property and value', () => {\r",
+									"   const responseJson = pm.response.json();\r",
+									" \r",
+									"   pm.expect(responseJson).to.have.ownProperty('status');\r",
+									"   pm.expect(responseJson.status).to.equals('fail');\r",
+									"   pm.expect(responseJson).to.have.ownProperty('message');\r",
+									"   pm.expect(responseJson.message).to.be.a('string');\r",
+									"});\r",
+									" \r",
+									"const repeatRequestUntilDatasetEmpty = () => {\r",
+									"    const badExportPayloads = pm.environment.get('badExportPayloads');\r",
+									" \r",
+									"    if(badExportPayloads && badExportPayloads.length > 0) {\r",
+									"        postman.setNextRequest('Exports Notes with Bad Payload');\r",
+									"    }\r",
+									"}\r",
+									" \r",
+									"repeatRequestUntilDatasetEmpty();"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let badExportPayloads = pm.environment.get('badExportPayloads');\r",
+									" \r",
+									"if (!badExportPayloads || badExportPayloads.length === 0) {\r",
+									"    badExportPayloads = [\r",
+									"       {},\r",
+									"       { targetEmail: true },\r",
+									"       { targetEmail: 0 },\r",
+									"       { targetEmail: '' },\r",
+									"       { targetEmail: 'John' },\r",
+									"       { targetEmail: 'qwert123' },\r",
+									"    ];\r",
+									"}\r",
+									" \r",
+									"const currentBadExportPayload = badExportPayloads.shift();\r",
+									"pm.environment.set('currentBadExportPayload', JSON.stringify(currentBadExportPayload));\r",
+									"pm.environment.set('badExportPayloads', badExportPayloads);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessTokenUserA}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{currentBadExportPayload}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}:{{port}}/export/notes",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"export",
+								"notes"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"// Ambil nilai dari environment variables\r",
+							"const url = pm.environment.get('url');\r",
+							"const port = pm.environment.get('port');\r",
+							"\r",
+							"// membuat User A \r",
+							"const createUserARequest = {\r",
+							"    url: `http://${url}:${port}/users`,\r",
+							"    method: 'POST',\r",
+							"    header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({\r",
+							"            username: 'user_a',\r",
+							"            password: 'secret',\r",
+							"            fullname: 'User A',\r",
+							"        }),\r",
+							"    },\r",
+							"};\r",
+							" \r",
+							"pm.sendRequest(createUserARequest, (error, response) => {\r",
+							"    console.log(error ? error : response);\r",
+							" \r",
+							"    // Setelah terdaftar, login dengan User A\r",
+							"    const loginUserRequest = {\r",
+							"        url: `http://${url}:${port}/authentications`,\r",
+							"        method: 'POST',\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json',\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({\r",
+							"                username: 'user_a',\r",
+							"                password: 'secret',\r",
+							"            }),\r",
+							"        },\r",
+							"    };\r",
+							" \r",
+							"    pm.sendRequest(loginUserRequest, (error, response) => {\r",
+							"        if (!error) {\r",
+							"            // memasukkan access token User A ke environment variabel\r",
+							"            const { data: { accessToken } } = response.json();\r",
+							"            pm.environment.set('accessTokenUserA', accessToken);\r",
 							"        }\r",
 							"    });\r",
 							"});"
