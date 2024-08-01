@@ -1536,7 +1536,7 @@
 									"                pm.expect(response.code).to.equals(404);\r",
 									"                const responseJson = response.json();\r",
 									"                pm.expect(responseJson.status).to.equals('fail');\r",
-									"                pm.expect(responseJson.message).to.equals('Resource yang Anda minta tidak ditemukan');\r",
+									"                pm.expect(responseJson.message).to.equals('Catatan tidak ditemukan');\r",
 									"            });\r",
 									"        }\r",
 									"    });\r",
@@ -3579,6 +3579,62 @@
 			"name": "Uploads",
 			"item": [
 				{
+					"name": "Upload Image with Non-Image File",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('response code should have 400 value', () => {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									" \r",
+									"pm.test('response Content-Type header should have application/json value', () => {\r",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.equals('application/json; charset=utf-8');\r",
+									"});\r",
+									" \r",
+									"pm.test('response body should have the correct property and value', () => {\r",
+									"   const responseJson = pm.response.json();\r",
+									" \r",
+									"   pm.expect(responseJson).to.have.ownProperty('status');\r",
+									"   pm.expect(responseJson.status).to.equals('fail');\r",
+									"   pm.expect(responseJson).to.have.ownProperty('message');\r",
+									"   pm.expect(responseJson.message).to.be.a('string');\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "data",
+									"type": "file",
+									"src": "postman-cloud:///1ef4f76c-7fe9-4420-b232-81f94db161ec"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}:{{port}}/upload/images",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"upload",
+								"images"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Upload Image",
 					"event": [
 						{
@@ -3637,62 +3693,6 @@
 									"key": "data",
 									"type": "file",
 									"src": "postman-cloud:///1ef5035c-7e13-4a50-9cf3-3b1180b3fdab"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{url}}:{{port}}/upload/images",
-							"host": [
-								"{{url}}"
-							],
-							"port": "{{port}}",
-							"path": [
-								"upload",
-								"images"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Upload Image with Non-Image File",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test('response code should have 400 value', () => {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});\r",
-									" \r",
-									"pm.test('response Content-Type header should have application/json value', () => {\r",
-									"  pm.expect(pm.response.headers.get('Content-Type')).to.equals('application/json; charset=utf-8');\r",
-									"});\r",
-									" \r",
-									"pm.test('response body should have the correct property and value', () => {\r",
-									"   const responseJson = pm.response.json();\r",
-									" \r",
-									"   pm.expect(responseJson).to.have.ownProperty('status');\r",
-									"   pm.expect(responseJson.status).to.equals('fail');\r",
-									"   pm.expect(responseJson).to.have.ownProperty('message');\r",
-									"   pm.expect(responseJson.message).to.be.a('string');\r",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "data",
-									"type": "file",
-									"src": "postman-cloud:///1ef4f76c-7fe9-4420-b232-81f94db161ec"
 								}
 							]
 						},

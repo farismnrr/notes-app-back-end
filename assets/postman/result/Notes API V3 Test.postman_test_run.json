@@ -1,22 +1,22 @@
 {
-	"id": "d13366f8-74e4-44f3-b879-98b51a1b8ed8",
+	"id": "47ac14e3-36ce-4c75-9310-9695eac44f4e",
 	"name": "Notes API V3 Test",
-	"timestamp": "2024-08-01T19:10:34.167Z",
+	"timestamp": "2024-08-01T21:54:18.967Z",
 	"collection_id": "30262904-4331b0bb-e3ea-472e-820f-3fbba845c59c",
 	"folder_id": 0,
 	"environment_id": "30262904-77bf987a-00ba-4c0f-9b26-5a2dd4dbebca",
-	"totalPass": 193,
+	"totalPass": 196,
 	"delay": 0,
 	"persist": true,
 	"status": "aborted",
-	"startedAt": "2024-08-01T19:09:56.952Z",
+	"startedAt": "2024-08-01T21:53:13.328Z",
 	"totalFail": 0,
 	"results": [
 		{
 			"id": "1ebe9483-4cfd-4466-a69a-ddbdd0e8f953",
 			"name": "Adding User",
 			"url": "localhost:5000/users",
-			"time": 158,
+			"time": 161,
 			"responseCode": {
 				"code": 201,
 				"name": "Created"
@@ -51,7 +51,7 @@
 				}
 			},
 			"times": [
-				158
+				161
 			],
 			"allTests": [
 				{
@@ -67,7 +67,7 @@
 			"id": "41528389-8794-42ab-8c10-c6b9be5f285e",
 			"name": "Adding User with Exist Username",
 			"url": "localhost:5000/users",
-			"time": 15,
+			"time": 28,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -97,7 +97,7 @@
 				}
 			},
 			"times": [
-				15
+				28
 			],
 			"allTests": [
 				{
@@ -112,7 +112,7 @@
 			"id": "185309aa-b2ab-4d72-90b8-050a6246d05f",
 			"name": "Adding User with Bad User Payload",
 			"url": "localhost:5000/users",
-			"time": 10,
+			"time": 13,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -142,7 +142,7 @@
 				}
 			},
 			"times": [
-				10
+				13
 			],
 			"allTests": [
 				{
@@ -156,7 +156,7 @@
 		{
 			"id": "0c1f0e19-437c-4654-aed1-3a39cb8e6dcb",
 			"name": "Getting User by Correct Id",
-			"url": "localhost:5000/users/user-QbWdOaZKH1z5MZCv",
+			"url": "localhost:5000/users/user-8ybLhlYVBn_f4yPE",
 			"time": 11,
 			"responseCode": {
 				"code": 200,
@@ -214,7 +214,7 @@
 			"id": "c8e9b9b4-943b-4250-aa67-a1a3db15492e",
 			"name": "Getting User by Incorrect Id",
 			"url": "localhost:5000/users/xxxx",
-			"time": 7,
+			"time": 11,
 			"responseCode": {
 				"code": 404,
 				"name": "Not Found"
@@ -244,7 +244,7 @@
 				}
 			},
 			"times": [
-				7
+				11
 			],
 			"allTests": [
 				{
@@ -259,7 +259,7 @@
 			"id": "43b78a6b-c4de-4d95-853d-b89e7160babc",
 			"name": "Search Users by Username Related to Dicoding",
 			"url": "localhost:5000/users?username=dicoding",
-			"time": 17,
+			"time": 20,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -299,7 +299,7 @@
 				}
 			},
 			"times": [
-				17
+				20
 			],
 			"allTests": [
 				{
@@ -316,7 +316,7 @@
 			"id": "d75a2b4b-9220-44a1-b860-1a48f5912b21",
 			"name": "Post Authentication with Valid Credentials",
 			"url": "localhost:5000/authentications",
-			"time": 76,
+			"time": 110,
 			"responseCode": {
 				"code": 201,
 				"name": "Created"
@@ -351,7 +351,7 @@
 				}
 			},
 			"times": [
-				76
+				110
 			],
 			"allTests": [
 				{
@@ -367,7 +367,7 @@
 			"id": "e1e4f0f9-dfc4-4231-9a05-af6b869bd3b9",
 			"name": "Post Authentication with Invalid Credential",
 			"url": "localhost:5000/authentications",
-			"time": 68,
+			"time": 88,
 			"responseCode": {
 				"code": 401,
 				"name": "Unauthorized"
@@ -397,7 +397,7 @@
 				}
 			},
 			"times": [
-				68
+				88
 			],
 			"allTests": [
 				{
@@ -412,7 +412,7 @@
 			"id": "ae6794b6-ebc8-4ae1-8547-812d9e8399e3",
 			"name": "Put Authentication with Valid Refresh Token",
 			"url": "localhost:5000/authentications",
-			"time": 10,
+			"time": 21,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -447,7 +447,7 @@
 				}
 			},
 			"times": [
-				10
+				21
 			],
 			"allTests": [
 				{
@@ -463,7 +463,7 @@
 			"id": "57f552fd-3fe2-436b-9f6b-7d50d9f93cef",
 			"name": "Put Authentications with Invalid Refresh Token",
 			"url": "localhost:5000/authentications",
-			"time": 10,
+			"time": 27,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -493,7 +493,7 @@
 				}
 			},
 			"times": [
-				10
+				27
 			],
 			"allTests": [
 				{
@@ -508,7 +508,7 @@
 			"id": "ffd6bf91-0d28-4a89-8301-5e8c8c3bb3df",
 			"name": "Delete Authentication with Valid Refresh Token",
 			"url": "localhost:5000/authentications",
-			"time": 11,
+			"time": 34,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -538,7 +538,7 @@
 				}
 			},
 			"times": [
-				11
+				34
 			],
 			"allTests": [
 				{
@@ -553,7 +553,7 @@
 			"id": "1c519e39-d39a-48a8-92c9-de23da05b42b",
 			"name": "Delete Authentication with Invalid Refresh Token",
 			"url": "localhost:5000/authentications",
-			"time": 9,
+			"time": 16,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -583,7 +583,7 @@
 				}
 			},
 			"times": [
-				9
+				16
 			],
 			"allTests": [
 				{
@@ -598,7 +598,7 @@
 			"id": "95381b0f-0d08-4bd2-9fda-9326813c8494",
 			"name": "Adding Notes",
 			"url": "localhost:5000/notes",
-			"time": 30,
+			"time": 44,
 			"responseCode": {
 				"code": 201,
 				"name": "Created"
@@ -633,7 +633,7 @@
 				}
 			},
 			"times": [
-				30
+				44
 			],
 			"allTests": [
 				{
@@ -649,7 +649,7 @@
 			"id": "3c1de640-0c2a-42d7-adff-865fcbae35af",
 			"name": "Adding Notes with Bad Payload",
 			"url": "localhost:5000/notes",
-			"time": 10,
+			"time": 11,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -679,7 +679,7 @@
 				}
 			},
 			"times": [
-				10
+				11
 			],
 			"allTests": [
 				{
@@ -694,7 +694,7 @@
 			"id": "30b569da-4392-4727-8af4-4905d94a1ab6",
 			"name": "Getting All Notes",
 			"url": "localhost:5000/notes",
-			"time": 21,
+			"time": 49,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -729,7 +729,7 @@
 				}
 			},
 			"times": [
-				21
+				49
 			],
 			"allTests": [
 				{
@@ -744,8 +744,8 @@
 		{
 			"id": "77e0b730-9f27-46c6-b266-d274ca9cc6d8",
 			"name": "Getting Specified Notes",
-			"url": "localhost:5000/notes/75U0k9PmUSaPIbU0",
-			"time": 18,
+			"url": "localhost:5000/notes/6ySNUdgTu07FkFpN",
+			"time": 17,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -785,7 +785,7 @@
 				}
 			},
 			"times": [
-				18
+				17
 			],
 			"allTests": [
 				{
@@ -801,8 +801,8 @@
 		{
 			"id": "1fc00aca-89bd-4d41-aa95-edd82338151e",
 			"name": "Update Note",
-			"url": "localhost:5000/notes/75U0k9PmUSaPIbU0",
-			"time": 13,
+			"url": "localhost:5000/notes/6ySNUdgTu07FkFpN",
+			"time": 20,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -842,7 +842,7 @@
 				}
 			},
 			"times": [
-				13
+				20
 			],
 			"allTests": [
 				{
@@ -858,8 +858,8 @@
 		{
 			"id": "75bbb02e-662c-4509-890a-5429b14afae1",
 			"name": "Update Note with Bad Payload",
-			"url": "localhost:5000/notes/75U0k9PmUSaPIbU0",
-			"time": 11,
+			"url": "localhost:5000/notes/6ySNUdgTu07FkFpN",
+			"time": 16,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -889,7 +889,7 @@
 				}
 			},
 			"times": [
-				11
+				16
 			],
 			"allTests": [
 				{
@@ -903,8 +903,8 @@
 		{
 			"id": "e601e14f-b31c-4c42-9e1a-78cdd6946799",
 			"name": "Delete Note",
-			"url": "localhost:5000/notes/75U0k9PmUSaPIbU0",
-			"time": 15,
+			"url": "localhost:5000/notes/6ySNUdgTu07FkFpN",
+			"time": 29,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -944,7 +944,7 @@
 				}
 			},
 			"times": [
-				15
+				29
 			],
 			"allTests": [
 				{
@@ -961,7 +961,7 @@
 			"id": "9441c33b-c677-4fdf-b3af-e299ac532264",
 			"name": "Getting All Notes without Access Token",
 			"url": "localhost:5000/notes",
-			"time": 12,
+			"time": 15,
 			"responseCode": {
 				"code": 401,
 				"name": "Unauthorized"
@@ -981,7 +981,7 @@
 				}
 			},
 			"times": [
-				12
+				15
 			],
 			"allTests": [
 				{
@@ -994,7 +994,7 @@
 			"id": "f3ff783e-d209-4fee-89b0-3eca15a03cc5",
 			"name": "Adding Notes using User A",
 			"url": "localhost:5000/notes",
-			"time": 11,
+			"time": 17,
 			"responseCode": {
 				"code": 201,
 				"name": "Created"
@@ -1019,7 +1019,7 @@
 				}
 			},
 			"times": [
-				11
+				17
 			],
 			"allTests": [
 				{
@@ -1033,7 +1033,7 @@
 			"id": "51a259d9-f048-4aad-bfd3-4ba02fedae81",
 			"name": "Adding Notes using User B",
 			"url": "localhost:5000/notes",
-			"time": 14,
+			"time": 20,
 			"responseCode": {
 				"code": 201,
 				"name": "Created"
@@ -1058,7 +1058,7 @@
 				}
 			},
 			"times": [
-				14
+				20
 			],
 			"allTests": [
 				{
@@ -1072,7 +1072,7 @@
 			"id": "aa1590ea-b666-4f4b-8c58-42793bdf8b1e",
 			"name": "Getting All Notes using User A",
 			"url": "localhost:5000/notes",
-			"time": 16,
+			"time": 21,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -1097,7 +1097,7 @@
 				}
 			},
 			"times": [
-				16
+				21
 			],
 			"allTests": [
 				{
@@ -1111,7 +1111,7 @@
 			"id": "df98fd27-bfd6-450c-af23-539d2535c280",
 			"name": "Getting All Notes using User B",
 			"url": "localhost:5000/notes",
-			"time": 29,
+			"time": 23,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -1136,7 +1136,7 @@
 				}
 			},
 			"times": [
-				29
+				23
 			],
 			"allTests": [
 				{
@@ -1149,8 +1149,8 @@
 		{
 			"id": "efcd6819-9fc7-440c-9fac-0019620f5b01",
 			"name": "Getting Note Owned by User A using User A",
-			"url": "localhost:5000/notes/E67A8FrQWCZEVaCJ",
-			"time": 20,
+			"url": "localhost:5000/notes/6Jr1IaOTmLTsbBXw",
+			"time": 16,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -1175,7 +1175,7 @@
 				}
 			},
 			"times": [
-				20
+				16
 			],
 			"allTests": [
 				{
@@ -1188,8 +1188,8 @@
 		{
 			"id": "cfef42e2-0633-4650-8d4e-5df3baafbee5",
 			"name": "Getting Note Owned by User B using User B",
-			"url": "localhost:5000/notes/WnpoQvHu2vhrxi1S",
-			"time": 14,
+			"url": "localhost:5000/notes/kMhWtGDmYlRQU3j1",
+			"time": 16,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -1214,7 +1214,7 @@
 				}
 			},
 			"times": [
-				14
+				16
 			],
 			"allTests": [
 				{
@@ -1227,8 +1227,8 @@
 		{
 			"id": "cfb1ca91-c4c6-446a-a888-36b337e213b9",
 			"name": "Getting Note Owned by User A using User B",
-			"url": "localhost:5000/notes/E67A8FrQWCZEVaCJ",
-			"time": 19,
+			"url": "localhost:5000/notes/6Jr1IaOTmLTsbBXw",
+			"time": 42,
 			"responseCode": {
 				"code": 403,
 				"name": "Forbidden"
@@ -1253,7 +1253,7 @@
 				}
 			},
 			"times": [
-				19
+				42
 			],
 			"allTests": [
 				{
@@ -1266,8 +1266,8 @@
 		{
 			"id": "b5539316-4d27-4e68-8c91-4d26fc65c9db",
 			"name": "Update Note Owned by User A using User A",
-			"url": "localhost:5000/notes/E67A8FrQWCZEVaCJ",
-			"time": 17,
+			"url": "localhost:5000/notes/6Jr1IaOTmLTsbBXw",
+			"time": 38,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -1287,7 +1287,7 @@
 				}
 			},
 			"times": [
-				17
+				38
 			],
 			"allTests": [
 				{
@@ -1299,8 +1299,8 @@
 		{
 			"id": "1a52e0d9-52ea-42ab-ad0c-e5d910754ed6",
 			"name": "Update Note Owned by User B using User B",
-			"url": "localhost:5000/notes/WnpoQvHu2vhrxi1S",
-			"time": 13,
+			"url": "localhost:5000/notes/kMhWtGDmYlRQU3j1",
+			"time": 20,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -1320,7 +1320,7 @@
 				}
 			},
 			"times": [
-				13
+				20
 			],
 			"allTests": [
 				{
@@ -1332,8 +1332,8 @@
 		{
 			"id": "e8a8b5a8-66fe-4ef9-8d17-8f592b882374",
 			"name": "Update Note Owned by User A using User B",
-			"url": "localhost:5000/notes/E67A8FrQWCZEVaCJ",
-			"time": 9,
+			"url": "localhost:5000/notes/6Jr1IaOTmLTsbBXw",
+			"time": 22,
 			"responseCode": {
 				"code": 403,
 				"name": "Forbidden"
@@ -1358,7 +1358,7 @@
 				}
 			},
 			"times": [
-				9
+				22
 			],
 			"allTests": [
 				{
@@ -1371,8 +1371,8 @@
 		{
 			"id": "1ed66a9e-4bb4-46e6-b58d-d34e8dc5f237",
 			"name": "Delete Note Owned by User A using User B",
-			"url": "localhost:5000/notes/E67A8FrQWCZEVaCJ",
-			"time": 11,
+			"url": "localhost:5000/notes/6Jr1IaOTmLTsbBXw",
+			"time": 17,
 			"responseCode": {
 				"code": 403,
 				"name": "Forbidden"
@@ -1397,7 +1397,7 @@
 				}
 			},
 			"times": [
-				11
+				17
 			],
 			"allTests": [
 				{
@@ -1410,7 +1410,40 @@
 		{
 			"id": "bee12aa5-4270-439e-b6f7-5d58b93deaa2",
 			"name": "Delete Note Owned by User A using User A",
-			"url": "localhost:5000/notes/E67A8FrQWCZEVaCJ",
+			"url": "localhost:5000/notes/6Jr1IaOTmLTsbBXw",
+			"time": 23,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response status code should have 200 value": true,
+				"response Content-Type header should have application/json value": true
+			},
+			"testPassFailCounts": {
+				"response status code should have 200 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type header should have application/json value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				23
+			],
+			"allTests": [
+				{
+					"response status code should have 200 value": true,
+					"response Content-Type header should have application/json value": true
+				}
+			]
+		},
+		{
+			"id": "bc828d74-7c59-4be5-89b0-509f7944783f",
+			"name": "Delete Note Owned by User B using User B",
+			"url": "localhost:5000/notes/kMhWtGDmYlRQU3j1",
 			"time": 14,
 			"responseCode": {
 				"code": 200,
@@ -1432,39 +1465,6 @@
 			},
 			"times": [
 				14
-			],
-			"allTests": [
-				{
-					"response status code should have 200 value": true,
-					"response Content-Type header should have application/json value": true
-				}
-			]
-		},
-		{
-			"id": "bc828d74-7c59-4be5-89b0-509f7944783f",
-			"name": "Delete Note Owned by User B using User B",
-			"url": "localhost:5000/notes/WnpoQvHu2vhrxi1S",
-			"time": 15,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response status code should have 200 value": true,
-				"response Content-Type header should have application/json value": true
-			},
-			"testPassFailCounts": {
-				"response status code should have 200 value": {
-					"pass": 1,
-					"fail": 0
-				},
-				"response Content-Type header should have application/json value": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				15
 			],
 			"allTests": [
 				{
@@ -1516,7 +1516,7 @@
 			"id": "7336133c-d007-475d-9d99-e1a30556fadf",
 			"name": "Adding Collaborator User as Collaborator to Added Note",
 			"url": "localhost:5000/collaborations",
-			"time": 24,
+			"time": 35,
 			"responseCode": {
 				"code": 201,
 				"name": "Created"
@@ -1541,7 +1541,7 @@
 				}
 			},
 			"times": [
-				24
+				35
 			],
 			"allTests": [
 				{
@@ -1555,7 +1555,7 @@
 			"id": "6c7a8f64-d490-4a98-9e1e-16e98be06571",
 			"name": "Getting All Notes using Collaborator",
 			"url": "localhost:5000/notes",
-			"time": 11,
+			"time": 17,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -1580,7 +1580,7 @@
 				}
 			},
 			"times": [
-				11
+				17
 			],
 			"allTests": [
 				{
@@ -1593,8 +1593,8 @@
 		{
 			"id": "e9de82a7-1519-4b12-8aa8-222094453b43",
 			"name": "Getting Added Note using Collaborator User",
-			"url": "localhost:5000/notes/dfyqLXpXF7JYfQ80",
-			"time": 14,
+			"url": "localhost:5000/notes/VHlRLpa-WxC6JU2l",
+			"time": 25,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -1614,7 +1614,7 @@
 				}
 			},
 			"times": [
-				14
+				25
 			],
 			"allTests": [
 				{
@@ -1626,8 +1626,8 @@
 		{
 			"id": "83d14718-0c42-4c9d-a1b5-408c887d7928",
 			"name": "Editing Added Note using Collaborator User",
-			"url": "localhost:5000/notes/dfyqLXpXF7JYfQ80",
-			"time": 15,
+			"url": "localhost:5000/notes/VHlRLpa-WxC6JU2l",
+			"time": 18,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -1647,7 +1647,7 @@
 				}
 			},
 			"times": [
-				15
+				18
 			],
 			"allTests": [
 				{
@@ -1659,8 +1659,8 @@
 		{
 			"id": "0b4787df-29d0-465c-bea8-db7f81cbc3fb",
 			"name": "Deleting Added Note using Collaborator User",
-			"url": "localhost:5000/notes/dfyqLXpXF7JYfQ80",
-			"time": 10,
+			"url": "localhost:5000/notes/VHlRLpa-WxC6JU2l",
+			"time": 13,
 			"responseCode": {
 				"code": 403,
 				"name": "Forbidden"
@@ -1685,7 +1685,7 @@
 				}
 			},
 			"times": [
-				10
+				13
 			],
 			"allTests": [
 				{
@@ -1699,7 +1699,7 @@
 			"id": "aa9842d2-ee34-4fdc-bfaa-54fdeb57cdc6",
 			"name": "Delete Collaborator User from Collaborator to Added Note",
 			"url": "localhost:5000/collaborations",
-			"time": 14,
+			"time": 33,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -1724,7 +1724,7 @@
 				}
 			},
 			"times": [
-				14
+				33
 			],
 			"allTests": [
 				{
@@ -1738,7 +1738,7 @@
 			"id": "8fe9af04-b51f-408d-8f23-30953b8acb28",
 			"name": "Adding Collaborator User as Collaborator to Added Note using Collaborator User",
 			"url": "localhost:5000/collaborations",
-			"time": 8,
+			"time": 14,
 			"responseCode": {
 				"code": 403,
 				"name": "Forbidden"
@@ -1763,7 +1763,7 @@
 				}
 			},
 			"times": [
-				8
+				14
 			],
 			"allTests": [
 				{
@@ -1777,7 +1777,7 @@
 			"id": "fd24c972-9deb-45c8-9185-bdb0d31b8473",
 			"name": "Getting All Notes using Collaborator User",
 			"url": "localhost:5000/notes",
-			"time": 12,
+			"time": 23,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -1802,7 +1802,7 @@
 				}
 			},
 			"times": [
-				12
+				23
 			],
 			"allTests": [
 				{
@@ -1815,8 +1815,8 @@
 		{
 			"id": "a378b1ff-0be6-4d9f-a913-1bb51a3461f0",
 			"name": "Getting Added Note using Collaborator User",
-			"url": "localhost:5000/notes/dfyqLXpXF7JYfQ80",
-			"time": 13,
+			"url": "localhost:5000/notes/VHlRLpa-WxC6JU2l",
+			"time": 17,
 			"responseCode": {
 				"code": 403,
 				"name": "Forbidden"
@@ -1841,7 +1841,7 @@
 				}
 			},
 			"times": [
-				13
+				17
 			],
 			"allTests": [
 				{
@@ -1854,8 +1854,8 @@
 		{
 			"id": "e854d839-fe76-464f-be9a-0d8eb9036000",
 			"name": "Editing Added Note using Collaborator User",
-			"url": "localhost:5000/notes/dfyqLXpXF7JYfQ80",
-			"time": 15,
+			"url": "localhost:5000/notes/VHlRLpa-WxC6JU2l",
+			"time": 17,
 			"responseCode": {
 				"code": 403,
 				"name": "Forbidden"
@@ -1880,7 +1880,7 @@
 				}
 			},
 			"times": [
-				15
+				17
 			],
 			"allTests": [
 				{
@@ -1893,8 +1893,8 @@
 		{
 			"id": "fa6ea898-a5ac-4c3c-b1d1-0fc159ae970d",
 			"name": "Deleting Added Note using Owner User",
-			"url": "localhost:5000/notes/dfyqLXpXF7JYfQ80",
-			"time": 13,
+			"url": "localhost:5000/notes/VHlRLpa-WxC6JU2l",
+			"time": 16,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -1914,7 +1914,7 @@
 				}
 			},
 			"times": [
-				13
+				16
 			],
 			"allTests": [
 				{
@@ -1927,7 +1927,7 @@
 			"id": "76ee3d13-2b5f-43ba-8b0d-e34d562260f8",
 			"name": "Exports Notes with Valid Payload",
 			"url": "localhost:5000/export/notes",
-			"time": 50,
+			"time": 36,
 			"responseCode": {
 				"code": 201,
 				"name": "Created"
@@ -1957,7 +1957,7 @@
 				}
 			},
 			"times": [
-				50
+				36
 			],
 			"allTests": [
 				{
@@ -1972,7 +1972,7 @@
 			"id": "7eb5c7d0-a176-442d-bd19-0eb1d00184c5",
 			"name": "Exports Notes with Bad Payload",
 			"url": "localhost:5000/export/notes",
-			"time": 11,
+			"time": 7,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -2002,12 +2002,12 @@
 				}
 			},
 			"times": [
+				17,
 				10,
-				8,
-				8,
-				7,
+				9,
+				10,
 				11,
-				11
+				7
 			],
 			"allTests": [
 				{
@@ -2049,10 +2049,49 @@
 			]
 		},
 		{
+			"id": "db309da8-c18a-497d-8315-bca123e6ef36",
+			"name": "Upload Image with Non-Image File",
+			"url": "localhost:5000/upload/images",
+			"time": 58,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"response code should have 400 value": true,
+				"response Content-Type header should have application/json value": true,
+				"response body should have the correct property and value": true
+			},
+			"testPassFailCounts": {
+				"response code should have 400 value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type header should have application/json value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should have the correct property and value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				58
+			],
+			"allTests": [
+				{
+					"response code should have 400 value": true,
+					"response Content-Type header should have application/json value": true,
+					"response body should have the correct property and value": true
+				}
+			]
+		},
+		{
 			"id": "811d660d-fa05-40de-842e-0a0769a680ff",
 			"name": "Upload Image",
 			"url": "localhost:5000/upload/images",
-			"time": 17,
+			"time": 16,
 			"responseCode": {
 				"code": 201,
 				"name": "Created"
@@ -2082,7 +2121,7 @@
 				}
 			},
 			"times": [
-				17
+				16
 			],
 			"allTests": [
 				{
@@ -2095,7 +2134,7 @@
 		}
 	],
 	"count": 1,
-	"totalTime": 1017,
+	"totalTime": 1444,
 	"collection": {
 		"requests": [
 			{
@@ -2304,6 +2343,10 @@
 			},
 			{
 				"id": "7eb5c7d0-a176-442d-bd19-0eb1d00184c5",
+				"method": "POST"
+			},
+			{
+				"id": "db309da8-c18a-497d-8315-bca123e6ef36",
 				"method": "POST"
 			},
 			{
