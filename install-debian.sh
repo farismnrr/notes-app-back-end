@@ -43,6 +43,10 @@ alias postgres_stop='sudo docker stop postgres-sql && sudo docker rm postgres-sq
 alias rabbitmq_start='sudo docker run --name rabbitmq -p 5672:5672 -p 15672:15672 -d rabbitmq:management'
 alias rabbitmq_stop='sudo docker stop rabbitmq && sudo docker rm rabbitmq'
 
+# Create redis command
+alias redis_start='sudo docker run --name redis -p 6379:6379 -d redis'
+alias redis_stop='sudo docker stop redis && sudo docker rm redis'
+
 # Create custom command
 alias docker_remove='sudo docker rmi -f $(sudo docker images -q)'
 alias docker_start='askin_start && rabbitmq_start && redis_start && postgres_start'
@@ -54,6 +58,10 @@ EOF
 ## Install rabbitmq by Docker
 sudo docker run --name rabbitmq -p 5672:5672 -p 15672:15672 -d rabbitmq:management
 sudo docker start rabbitmq
+
+## Install redis by Docker
+sudo docker run --name redis -p 6379:6379 -d redis
+sudo docker start redis
 
 ## Install postgresql by Docker
 sudo docker run --name postgres-sql -p 5432:5432 -e POSTGRES_PASSWORD=postgres -d postgres
